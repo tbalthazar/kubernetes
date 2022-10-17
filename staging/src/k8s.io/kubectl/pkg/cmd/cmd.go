@@ -54,6 +54,7 @@ import (
 	"k8s.io/kubectl/pkg/cmd/explain"
 	"k8s.io/kubectl/pkg/cmd/expose"
 	"k8s.io/kubectl/pkg/cmd/get"
+	"k8s.io/kubectl/pkg/cmd/helloworld"
 	"k8s.io/kubectl/pkg/cmd/label"
 	"k8s.io/kubectl/pkg/cmd/logs"
 	"k8s.io/kubectl/pkg/cmd/options"
@@ -408,6 +409,7 @@ func NewKubectlCommand(o KubectlOptions) *cobra.Command {
 		{
 			Message: "Settings Commands:",
 			Commands: []*cobra.Command{
+				helloworld.NewCmdHelloWorld(f, o.IOStreams),
 				label.NewCmdLabel(f, o.IOStreams),
 				annotate.NewCmdAnnotate("kubectl", f, o.IOStreams),
 				completion.NewCmdCompletion(o.IOStreams.Out, ""),
